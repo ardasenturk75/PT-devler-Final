@@ -1,0 +1,32 @@
+using System;
+
+namespace Ornek096
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            double[] burslar = { 150, 600, 700, 450, 850, 275, 950, 1500, 210, 368 };
+            double[] yeniBurslar = new double[burslar.Length];
+
+            int index = 0;
+
+            foreach (double burs in burslar)
+            {
+                double yeniBurs = burs;
+
+                if (burs < 500)
+                {
+                    // Burs miktarı 500 ve altında olanlara artış yapılıyor.
+                    yeniBurs = burs * 0.1 + 50;
+                }
+
+                yeniBurslar[index++] = yeniBurs;
+                Console.WriteLine(yeniBurs);
+            }
+
+            Console.Write("DEVAM ETMEK İÇİN BİR TUŞA BASINIZ. . . ");
+            Console.ReadKey(true);
+        }
+    }
+}
