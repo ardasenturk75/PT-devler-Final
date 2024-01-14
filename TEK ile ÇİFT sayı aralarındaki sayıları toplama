@@ -1,0 +1,50 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        try
+        {
+            Console.Write("İlk sayıyı girin: ");
+            int sayi1 = Convert.ToInt32(Console.ReadLine());
+
+            Console.Write("İkinci sayıyı girin: ");
+            int sayi2 = Convert.ToInt32(Console.ReadLine());
+
+            Console.Write("TEK’leri mi ÇİFT’leri mi toplamak istersiniz? (TEK/ÇİFT): ");
+            string secim = Console.ReadLine().ToUpper(); // Kullanıcının girdiği metni büyük harfe çeviriyoruz.
+
+            int baslangic = Math.Min(sayi1, sayi2);
+            int bitis = Math.Max(sayi1, sayi2);
+
+            int toplam = 0;
+
+            if (secim == "TEK")
+            {
+                for (int i = baslangic % 2 == 0 ? baslangic + 1 : baslangic; i <= bitis; i += 2)
+                {
+                    toplam += i;
+                }
+            }
+            else if (secim == "ÇİFT")
+            {
+                for (int i = baslangic % 2 == 0 ? baslangic : baslangic + 1; i <= bitis; i += 2)
+                {
+                    toplam += i;
+                }
+            }
+            else
+            {
+                Console.WriteLine("Geçersiz seçim. 'TEK' veya 'ÇİFT' giriniz.");
+                return;
+            }
+
+            Console.WriteLine($"{baslangic} ile {bitis} arasındaki {secim.ToLower()} sayıların toplamı: {toplam}");
+        }
+        catch (FormatException)
+        {
+            Console.WriteLine("Geçersiz bir giriş yaptınız. Lütfen sayıları doğru bir şekilde girin.");
+        }
+    }
+}
