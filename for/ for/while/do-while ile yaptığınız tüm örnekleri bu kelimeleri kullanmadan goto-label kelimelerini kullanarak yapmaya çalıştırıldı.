@@ -1,0 +1,33 @@
+using System;
+
+namespace Ornek096_GotoLabel
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            double[] burslar = { 150, 600, 700, 450, 850, 275, 950, 1500, 210, 368 };
+            int b = 0;
+
+            baslangic:
+            if (b >= burslar.Length)
+            {
+                Console.Write("DEVAM ETMEK İÇİN BİR TUŞA BASINIZ. . . ");
+                Console.ReadKey(true);
+                return;
+            }
+
+            double burs = burslar[b];
+
+            if (burs < 500)
+            {
+                burs = burs * 0.1 + 50;
+            }
+
+            Console.WriteLine(burs);
+
+            b++;
+            goto baslangic;
+        }
+    }
+}
