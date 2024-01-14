@@ -1,0 +1,38 @@
+using System;
+
+namespace Ornek202
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int[] X = new int[5];
+            int index = 0;
+            int adet = 0;
+            int toplam = 0;
+
+            while (index < X.Length)
+            {
+                Console.Write(index + ". Elemanı Gir: ");
+                X[index] = Int32.Parse(Console.ReadLine());
+
+                if (X[index] % 10 == 0)
+                {
+                    adet++;
+                    toplam += X[index];
+                }
+
+                index++;
+            }
+
+            double ortalama = adet > 0 ? (double)toplam / adet : 0;
+
+            Console.WriteLine("Son Rakamı Sıfır Olan Sayı Adedi: " + adet);
+            Console.WriteLine("Toplamı: " + toplam);
+            Console.WriteLine("Ortalaması: " + ortalama);
+
+            Console.Write("Press any key to continue . . . ");
+            Console.ReadKey(true);
+        }
+    }
+}
