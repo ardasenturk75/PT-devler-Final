@@ -1,0 +1,31 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        int toplam = 0;
+
+        while (true)
+        {
+            try
+            {
+                Console.Write("Bir sayı girin: ");
+                int sayi = Convert.ToInt32(Console.ReadLine());
+
+                if (sayi == 83)
+                {
+                    break;
+                }
+
+                toplam += sayi;
+            }
+            catch (FormatException)
+            {
+                Console.WriteLine("Geçersiz bir giriş yaptınız. Lütfen bir sayı girin.");
+            }
+        }
+
+        Console.WriteLine("Toplam = " + toplam);
+    }
+}
