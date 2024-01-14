@@ -1,0 +1,38 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        try
+        {
+            Console.Write("Kaç adet sayı girmek istiyorsunuz? ");
+            int adet = Convert.ToInt32(Console.ReadLine());
+
+            int toplam = 0;
+
+            for (int i = 1; i <= adet; i++)
+            {
+                Console.Write($"{i}. sayıyı girin: ");
+                int sayi = Convert.ToInt32(Console.ReadLine());
+
+                toplam += sayi;
+            }
+
+            double ortalama = (double)toplam / adet;
+
+            Console.WriteLine($"Girilen {adet} sayının toplamı: {toplam}");
+            Console.WriteLine($"Girilen {adet} sayının ortalaması: {ortalama}");
+        }
+        catch (FormatException)
+        {
+            Console.WriteLine("Geçersiz bir giriş yaptınız. Lütfen sayısal bir değer girin.");
+        }
+        catch (OverflowException)
+        {
+            Console.WriteLine("Girilen sayı çok büyük veya çok küçük. Daha küçük bir sayı deneyin.");
+        }
+
+        Console.ReadLine();
+    }
+}
