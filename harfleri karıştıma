@@ -1,0 +1,46 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ÖDEV19
+{
+    internal class Program
+    {
+       
+            public static void Main(string[] args)
+            {
+                Console.Write("İsimi Giriniz: ");
+                string isim = Console.ReadLine();
+
+                if (isim.Length == 8)
+                {
+                    char[] isimDizi = isim.ToCharArray();
+                    bool[] D = new bool[8];
+                    Random rastgele = new Random();
+
+                    Console.Write("Karıştırılmış İsim: ");
+
+                    for (int a = 0; a < 8; a++)
+                    {
+                        int sayi;
+                        do
+                        {
+                            sayi = rastgele.Next(8);
+                        } while (D[sayi]);
+
+                        D[sayi] = true;
+                        Console.Write(isimDizi[sayi]);
+                    }
+
+                    Console.WriteLine("\n\nPress any key to continue . . . ");
+                    Console.ReadKey(true);
+                }
+                else
+                {
+                    Console.WriteLine("Girilen isim 8 karakter uzunluğunda olmalıdır.");
+                }
+            }
+        }
+    }
